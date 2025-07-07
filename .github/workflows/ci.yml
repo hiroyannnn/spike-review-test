@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # ここにCIジョブを追加できます
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run AI review (via Dify)
+        uses: hiroyannnn/ai-pr-reviewer@main
+        with:
+          openai_base_url: https://api.dify.ai/v1   # <= 上と合わせる
+          openai_light_model: Gemini-2.5-Flash          # Dify で有効なモデル名
+          openai_heavy_model: Gemini-2.5-Flash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
