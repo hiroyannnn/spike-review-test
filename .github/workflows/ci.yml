@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read          # ← これが無いと GITHUB_TOKEN が発行されない
+  pull-requests: write
+
 jobs:
   # ここにCIジョブを追加できます
   placeholder:
