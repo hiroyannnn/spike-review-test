@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read          # ← これが無いと GITHUB_TOKEN が発行されない
+  pull-requests: write
+
+jobs:
+  # ここにCIジョブを追加できます
+  placeholder:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # ← 追加
+    steps:
+      - name: Run AI review (via Dify)
+        uses: hiroyannnn/ai-pr-reviewer@main
+        with:
+          openai_base_url: https://api.dify.ai/v1
+          openai_light_model: gpt-4o-mini
+          openai_heavy_model: gpt-4o
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
