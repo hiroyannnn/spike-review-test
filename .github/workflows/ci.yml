@@ -21,7 +21,7 @@ jobs:
         uses: hiroyannnn/ai-pr-reviewer@main
         with:
           openai_base_url: https://api.dify.ai
-          openai_light_model: Gemini-2.5-Flash          # Dify で有効なモデル名
-          openai_heavy_model: Gemini-2.5-Flash
+          openai_light_model: gpt-4o-mini
+          openai_heavy_model: gpt-4o
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
