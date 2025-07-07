@@ -20,7 +20,7 @@ jobs:
       - name: Run AI review (via Dify)
         uses: hiroyannnn/ai-pr-reviewer@main
         with:
-          openai_base_url: https://api.dify.ai
+          openai_base_url: https://api.dify.ai/v1
           openai_light_model: gpt-4o-mini
           openai_heavy_model: gpt-4o
         env:
