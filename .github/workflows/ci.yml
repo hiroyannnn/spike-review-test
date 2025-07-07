@@ -10,6 +10,8 @@ jobs:
   # ここにCIジョブを追加できます
   placeholder:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # ← 追加
     steps:
       - name: Run AI review (via Dify)
         uses: hiroyannnn/ai-pr-reviewer@main
